@@ -14,8 +14,8 @@ import os, sys
 path = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "lib"))
 if path not in sys.path:
     sys.path.append(path)
-
-from Singleton import Singleton
+    # sys.path.append('blog/lib/')
+from blog.lib.Singleton import Singleton
 from ConfigParser import SafeConfigParser
 
 class Config(Singleton):
@@ -40,9 +40,9 @@ class Config(Singleton):
     def options(self, section):
         return self.parser.options(section)
 
-# if __name__ == '__main__':
-#     # test code
-#     for section in Config().sections():
-#         print "[%s]" % section
-#         for option in Config().options(section):
-#             print "%s: %s, %s" % (option, Config().get(section, option), type(Config().get(section, option)))
+if __name__ == '__main__':
+    # test code
+    path = Config().get('output_file', 'BaseDir')
+    print ("Here is path that get from Config(): \n{}".format(path) )
+
+
