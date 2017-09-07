@@ -1,0 +1,173 @@
+<html>
+
+<head>
+  <title>Analyze Image</title>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="/static/css/analize.css">
+  <script type="text/javascript" src="/static/js/analize.js"></script>
+
+</head>
+
+<body>
+<div class="container-fluid">
+<br>
+    <div class="row">
+      <!-- <div class="col-sm-6"><h1>The result is: <strong > {{ result_img  }} </strong></h1></div> -->
+      <div class="col-sm-6"><buton class="btn btn-default"><a href="/blog/">Back to Search Image</a></buton></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="fit_size">
+
+              <div >
+                <div style="border:1px solid #ccc">
+                  <!-- <h1>Upload and Search Similar Image</h1> -->
+                  <form id="form_upload" name="myfile" action="" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-sm-6">{{form}} </div>
+                    <div  class="col-sm-6">
+                      <input id="butonID" name="myfile"  type="submit" value="Upload" class="btn btn-info" />
+
+                      <!-- <button id = "butonID" name="myfile"  type="submit" value="Upload" > </button> -->
+
+                      <!-- <form action="/upload/" method="post" id="file-upload-form" enctype="multipart/form-data"> {% csrf_token %} -->
+                          <!-- {{ form }} -->
+                          <!-- <button type="submit" class="btn btn-primary" id='upload-btn'>Upload</button> -->
+                      </form>
+
+                    </div>
+
+                  </div>
+
+                  </form>
+
+
+                </div>
+                <img src="/static/img/ajax-loader.gif" id="img_gif" style="display:none"/>
+
+              </div>
+
+
+            </div>
+
+            <div id="infocontent">
+                <div id="link1content">
+                    {% for res in result_acc %}
+                        <p>  {{ res }} </p>
+                    {% endfor %}
+                </div>
+
+                <div id="link2content">Information about 2. <img src="/media/images/face_detected.jpeg" width="100%" depth="100%">
+                </div>
+                <div id="link3content">Information about 3.
+                  <img src="/media/images/object_hog.jpeg" width="100%" depth="100%">
+                  <img src="/media/images/object_haar.jpeg" width="100%" depth="100%">
+                  <!-- https://youtu.be/Flpj_D8b1Vg?t=19m32s -->
+
+                  <video src="/media/images/test_video.mp4" controls>
+                    <p>Your browser doesn't support HTML5 video. Here is a <a href="https://youtu.be/Flpj_D8b1Vg?t=19m32s">link to the video</a> instead.</p>
+
+                  </video>
+
+                  <a id="show_alert" href="#">Click to show alert</a>
+
+                </div>
+                <div id="link4content">
+                  <form action="/blog/classification_svm/" method="post" id="form_login">{% csrf_token %}
+                      <table>
+                          <tr>
+                              <td>
+                                  <input type="text" name="url_image" id="url_image" placeholder="type url" />
+                              </td>
+                          </tr>
+                          <tr>
+                              <td align="center">
+                                   <button id="button_login" type="submit">Submit</button>
+                              </td>
+                          </tr>
+                      </table>
+                  </form>
+                  <br />
+
+
+                    <img id="img_input" />
+                    <img src="/static/img/ajax-loader.gif" id="img_gif" style="display:none"/>
+                    <ul id="reslist"></ul>
+
+
+                </div>
+           </div>
+
+        </div>
+
+
+
+        <nav class="col-sm-6 nav nav-tabs">
+
+
+            <div class="nav nav-pills nav-stacked" role="tablist">
+              <div id="linkwrapper" class="row">
+                <div  class="col-sm-3 navi-header"><a class="nav " id="link1" href="#">Classification with tensor-flow</a><br/></div>
+                <div  class="col-sm-3 navi-header"><a class="nav " id="link2" href="#">Face Detection</a><br/></div>
+                <div  class="col-sm-3 navi-header"><a class="nav " id="link3" href="#">Object Detection</a></div>
+                <div  class="col-sm-3 navi-header"><a class="nav " id="link4" href="#">Classification with SVM</a></div>
+              </div>
+
+
+            </div>
+            <img src="/static/img/ajax-loader.gif" id="img_gif" style="display:none"/>
+            <img src="/media/images/{{name_img}}" id="image_upload" style="display:none"/>
+            <!-- <img style="display:none" id="image_upload" src="https://static.comicvine.com/uploads/original/11122/111226921/4874396-0856915432-71390.jpg"/> -->
+            <!-- <img src=""/> -->
+        </nav>
+
+        </div>
+
+    </div>
+    <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Uploading...</h4>
+            <img id="img_gif" src="/static/img/ajax-loader.gif" />
+          </div>
+          <div class="modal-body">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="loading" style="display:none">Loading&#8230;</div> -->
+    <!-- <div>{{ list_img }}</div> -->
+
+    <div>
+      <div style="background-color:lavender;">
+        {% if list_img %}
+            <ul>
+            {% for img in list_img %}
+                <li class="thumbnail"><img src="/media/{{img}}"  />
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+      </div>
+    </div>
+
+
+
+
+</body>
+</html>

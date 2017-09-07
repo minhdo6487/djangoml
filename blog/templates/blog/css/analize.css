@@ -1,0 +1,36 @@
+ul li.thumbnail
+    {
+      list-style:none outside none;
+      z-index:1;
+      display:inline-block;
+      margin:0 6px 6px 0;
+      overflow:hidden;
+      vertical-align:middle;
+      position:relative;
+    }
+
+ul li.thumbnail img
+    {
+      height:200px;
+      width:200px;
+      overflow:hidden;
+    }
+#link2content {
+      height:200px;
+      width:450px;
+      overflow:auto;
+    }
+#link1content {
+      height:200px;
+      width:450px;
+      overflow:auto;
+    }
+#link4content {
+      height:200px;
+      width:450px;
+      overflow:auto;
+    }
+.navi-header
+    {
+      text-align:center;
+    }

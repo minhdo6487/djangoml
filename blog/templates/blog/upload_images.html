@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+        <script type="text/javascript" src="/static/js/basic_upload.js"></script>
+
+    </head>
+    <body>
+        basic_upload
+        <!-- {# 1. BUTTON TO TRIGGER THE ACTION #} -->
+        <button type="button" class="btn btn-primary js-upload-photos">
+          <span class="glyphicon glyphicon-cloud-upload"></span> Upload photos
+        </button>
+
+        <!-- {# 2. FILE INPUT TO BE USED BY THE PLUG-IN #} -->
+        <input id="fileupload" type="file" name="file" multiple
+               style="display: none;"
+               data-url="{% url 'blog:basic_upload' %}"
+               data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+
+        <!-- {# 3. TABLE TO DISPLAY THE UPLOADED PHOTOS #} -->
+        <table id="gallery" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Photo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for photo in images %}
+              <tr>
+                <td><a href="{{ photo.file.url }}">{{ photo.file.name }}</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+
+    </body>
+</html>
+
+
+

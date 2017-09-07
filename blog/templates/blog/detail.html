@@ -1,0 +1,16 @@
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% for answer in question.answers_set.all %}
+    <li style="color:red">{{ answer }}</li>
+    <span>{{ answer.answer_text }}</span>
+    <span>{{ answer.comment }} - {{ answer.id }}</span>
+
+    <span> click <a href="{{ answer.id }}/editcomment/">here</a> for edit </span>
+    <span> click <a href="{{ answer.id }}/deleteComment/">here</a> for del </span>
+{% endfor %}
+</ul>
+
+<form method="POST" enctype="multipart/form-data"  action="">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="comment">
+</form>
