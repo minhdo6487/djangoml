@@ -1,0 +1,17 @@
+*.pyc
+bog/classification/back_up_img/
+blog/media/
+blog/opencv_model/bg.txt
+blog/opencv_model/image_link/
+blog/opencv_model/neg/
+blog/opencv_model/neg_and_bg/
+blog/tensor_model/bottlenecks/
+blog/tensor_model/img_model/
+blog/tensor_model/inception/
+blog/tensor_model/retrained_graph.pb
+blog/tensor_model/training_summaries/
+blog/classification/back_up_img/
+blog/classification/image_4_classification/
+minh_key
+minh_key.pub
+
