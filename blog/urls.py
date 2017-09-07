@@ -1,6 +1,8 @@
 from django.conf.urls import url
 
 from . import views
+import sys
+sys.path.append('/usr/local/lib/python2.7/site-packages')
 
 app_name = 'blog'
 urlpatterns = [
