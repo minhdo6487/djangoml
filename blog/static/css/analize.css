@@ -15,29 +15,28 @@
           width:200px;
           overflow:hidden;
         }
-    .fit_size {
-      height: 70;
-      width: 400px;
-    }
-    #link2content {
-          height:310px;
-          width:400px;
-          overflow:auto;
-        }
+
     #link1content {
-          height:530px;
-          width:400px;
+          width:100%;
+          height: 100%;
+          overflow:auto;
+          background: rgba(255,255,255,0.6);
           overflow:auto;
         }
+    #link5content {
+        width:100%;
+        height: 100%;
+        overflow:auto;
+        background: rgba(255,255,255,0.5);
+    }
     #link4content {
-          height:530px;
           width:470px;
           overflow:auto;
         }
     .navi-header
         {
           text-align:center;
-          padding:5px;
+          padding:1px;
         }
 
     img {
@@ -45,11 +44,46 @@
           margin: auto;
           width: 100%;
         }
-
+    .center {
+        margin: auto;
+        width: 50%;
+        /*border: 3px solid green;*/
+        text-align: center;
+        padding: 10px;
+    }
     #img_gif {
       margin: : auto;
       width: 80px;
       height: 80px;
+    }
+    .my-style-img {
+        overflow:auto;
+        width: 100%; /* or any custom size */
+        height: 100%;
+        object-fit: contain;
+    }
+    .my-style{
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+     }
+    .my-style:hover {
+        background: #06D85F;
+    }
+    .classifier-result {
+        display: block;
+        margin: 5px;
+        font-size: 130%;
+        text-align: left;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+        border-bottom: 1px solid #BEBEBE;
+    }
+    .classifier-result:hover {
+        background: #D3D3D3;
     }
     ./*add_height {
       height:70px;
@@ -176,3 +210,121 @@
   }
 }
 
+/* POP-UP upload */
+body {
+  font-family: Arial, sans-serif;
+  background-size: cover;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #06D85F;
+  margin: 80px 0;
+}
+
+.box {
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  border: 2px solid #fff;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.box_style {
+  margin: 0 auto;
+  width: 100%;
+  background: rgba(255,255,255,0.6);
+  padding: 20px;
+  border: 2px solid #fff;
+  background-clip: padding-box;
+  text-align: center;
+}
+.box_style_upload {
+  margin: 0 auto;
+  padding: 20px;
+  background-clip: padding-box;
+  text-align: right;
+}
+.box_style_image {
+  margin: 0 auto;
+  width: 100%;
+  height: 500;
+  padding: 20px;
+  border: 2px solid #fff;
+  background-clip: padding-box;
+  background: rgba(0,0,0,0.6);
+  text-align: right;
+}
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  font-weight: bold;
+  color:rgb(73,91,127);
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 120px auto;
+  margin-left: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}

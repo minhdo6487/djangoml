@@ -5,133 +5,243 @@
   <meta charset="utf-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+  <link rel="stylesheet" href="/static/js/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.session.js"></script>
 
   <link rel="stylesheet" href="/static/css/analize.css">
   <script type="text/javascript" src="/static/js/analize.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    var tmp_val = $.session.get('tmp_val');
+
+    if (tmp_val === '1' ) {
+        $.session.set('tmp_val', '2');
+        $("#butonID").click();
+
+    };
+
+   });
+
+  </script>
 
 </head>
 
 <body>
 <div class="container-fluid">
 <br>
-    <div class="row">
-      <!-- <div class="col-sm-6"><h1>The result is: <strong > {{ result_img  }} </strong></h1></div> -->
-      <div class="col-sm-6"><buton class="btn btn-default"><a href="/blog/">Back to Search Image</a></buton></div>
-    </div>
+
+    <nav class="navbar navbar-inverse mystyle" style="font-size: 130%;">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Python</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/blog/">Home</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Machine Learning<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/blog/result/">Demo with Image Regcornize</a></li>
+                <li><a href="#">Re Sy</a></li>
+                <li><a href="#">Cr Sy</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Deep Learning</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+    </nav>
 
     <div class="row">
-        <div class="col-sm-6">
-            <div class="fit_size">
 
-              <div >
-                <div style="border:1px solid #ccc">
-                  <!-- <h1>Upload and Search Similar Image</h1> -->
-                  <form id="form_upload" name="myfile" action="" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <div class="row">
-                    <div class="col-sm-6">{{form}} </div>
-                    <div  class="col-sm-6">
-                      <input id="butonID" name="myfile"  type="submit" value="Upload" class="btn btn-info" />
+        <div class="col-sm-6" style="height:678.44px;">
+            <nav class="box_style nav nav-tabs" style="height:119.55px;text-align:left;padding:0px;"></nav>
+            <nav class="box_style nav nav-tabs" style="height:558.89px;text-align:left;padding:0px;">
 
-                      <!-- <button id = "butonID" name="myfile"  type="submit" value="Upload" > </button> -->
-
-                      <!-- <form action="/upload/" method="post" id="file-upload-form" enctype="multipart/form-data"> {% csrf_token %} -->
-                          <!-- {{ form }} -->
-                          <!-- <button type="submit" class="btn btn-primary" id='upload-btn'>Upload</button> -->
-                      <!--</form>-->
-
-                    </div>
-
-                  </div>
-
-                  </form>
-
-
-                </div>
-                <img src="/static/img/ajax-loader.gif" id="img_gif" style="display:none"/>
-
-              </div>
-
-
-            </div>
+            <img src="/static/img/ajax-loader.gif" id="img_gif" style="display:none"/>
 
             <div id="infocontent">
                 <div id="link1content">
+                    <ul>
                     {% for res in result_acc %}
-                        <p>  {{ res }} </p>
+                        <li class="classifier-result"> {{ res }} </li>
                     {% endfor %}
+                    </ul>
                 </div>
 
-                <div id="link2content">Information about 2. <img src="/media/images/face_detected.jpeg" width="100%" depth="100%">
+                <div id="link5content">
+                    <ul>
+                    {% for score_label in class_score %}
+                        <li class="classifier-result"> {{ score_label }} </li>
+                    {% endfor %}
+                    </ul>
                 </div>
-                <div id="link3content">Information about 3.
-                  <img src="/media/images/object_hog.jpeg" width="100%" depth="100%">
-                  <img src="/media/images/object_haar.jpeg" width="100%" depth="100%">
-                  <!-- https://youtu.be/Flpj_D8b1Vg?t=19m32s -->
 
-                  <video src="/media/images/test_video.mp4" controls>
-                    <p>Your browser doesn't support HTML5 video. Here is a <a href="https://youtu.be/Flpj_D8b1Vg?t=19m32s">link to the video</a> instead.</p>
+                <div id="link2content">
+                    <!--<nav class="box_style nav nav-tabs"></nav>-->
+                    <div class="box_style">
+                        <p>nothing to show</p>
+                    </div>
 
-                  </video>
+                        <!--<img id="face_detect" class="my-style-img" src="/media/images/face_detected.jpeg" width="100%" depth="100%">-->
+                        <!--<script language="javascript" type="text/javascript">-->
+                                <!--var d = new Date();-->
+                                <!--document.getElementById("face_detect").src =-->
+                                  <!--"/media/images/face_detected.jpeg?ver=" +-->
+                                   <!--d.getTime();-->
+                        <!--</script>-->
 
-                  <a id="show_alert" href="#">Click to show alert</a>
+                        <!--<canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>-->
+                        <!--<script>-->
+    <!---->
+                                <!--window.onload = function() {-->
+                                    <!--var c = document.getElementById("myCanvas");-->
+                                    <!--var ctx = c.getContext("2d");-->
+                                    <!--var img = document.getElementById("image_upload");-->
+                                    <!--ctx.drawImage(img, 10, 10);-->
+                                    <!--&lt;!&ndash;var db =  {{ store_box_face }}&ndash;&gt;-->
+    <!---->
+                                    <!--var db =  [{'box_face': 'point_0', 'value': [265, 8, 51, 51]},{'box_face': 'point_1', 'value': [179, 20, 45, 45]},{'box_face': 'point_2', 'value': [50, 30, 42, 42]},{'box_face': 'point_3', 'value': [414, 26, 49, 49]},{'box_face': 'point_4', 'value': [211, 110, 52, 52]},{'box_face': 'point_5', 'value': [349, 119, 48, 48]}]-->
+    <!---->
+                                    <!--var next = function(db) {-->
+                                    <!--for (var i = 0; i < db.length; i++) {-->
+                                        <!--&lt;!&ndash;console.log( db[i + 1] && db[i + 1].value ); &ndash;&gt;-->
+                                        <!--position = ( db[i + 1] && db[i + 1].value );-->
+                                        <!--return position;-->
+                                      <!--}-->
+                                    <!--};-->
+                                <!--pos = next(db);-->
+                                <!--ctx.lineWidth="2";-->
+                                <!--ctx.strokeStyle="green";-->
+                                <!--ctx.rect( pos[0] , pos[1] , pos[2] , pos[3] );-->
+                                <!--ctx.stroke();-->
+                                <!--}-->
+                        <!--</script>-->
+
 
                 </div>
-                <div id="link4content">
-                  <form action="/blog/classification_svm/" method="post" id="form_login">{% csrf_token %}
-                      <table>
-                          <tr>
-                              <td>
-                                  <input type="text" name="url_image" id="url_image" placeholder="type url" />
-                              </td>
-                          </tr>
-                          <tr>
-                              <td align="center">
-                                   <button id="button_login" type="submit">Submit</button>
-                              </td>
-                          </tr>
-                      </table>
-                  </form>
-                  <br />
+
+                <div id="link3content" class="box_style_image">
+
+                    {% if flat_urban %}
+                        <img id="obj_detect" class="my-style-img" src="/media/images/object_hog.jpeg" width="100%" depth="100%">
+                        <script language="javascript" type="text/javascript">
+                                var d = new Date();
+                                document.getElementById("obj_detect").src =
+                                "/media/images/object_hog.jpeg?ver=" +
+                                d.getTime();
+                        </script>
+                    {% else %}
+                        <p style="font-weight: bold; text-align: center;">NO VEHICLE IN IMAGE</p>
+                    {% endif %}
 
 
-                    <img id="img_input" />
-                    <img src="/static/img/ajax-loader.gif" id="img_gif" style="display:none"/>
-                    <ul id="reslist"></ul>
+                </div>
 
+                <div id="link4content" style="background-clip: padding-box;">
+                  <!--<form action="/blog/classification_svm/" method="post" id="form_login">{% csrf_token %}-->
+                      <!--<table>-->
+                          <!--<tr>-->
+                              <!--<td>-->
+                                  <!--<input type="text" name="url_image" id="url_image" placeholder="type url" />-->
+                              <!--</td>-->
+                          <!--</tr>-->
+                          <!--<tr>-->
+                              <!--<td align="center">-->
+                                   <!--<button id="button_login" type="submit">Submit</button>-->
+                              <!--</td>-->
+                          <!--</tr>-->
+                      <!--</table>-->
+                  <!--</form>-->
+                  <!--<br />-->
+                <ul>
+                  <img id="img_input" />
+                  <img src="/static/img/ajax-loader.gif" id="img_gif" style="display:none"/>
+                  <ul id="reslist"></ul>
+
+                  {% for score_label in two_class_score %}
+                       <li class="classifier-result"> {{ score_label }} </li>
+                       <!--<p>  {{ score_label }} </p>-->
+                  {% endfor %}
+                </ul>
 
                 </div>
            </div>
-
-        </div>
-
-
-
-        <nav class="col-sm-6 nav nav-tabs">
-
-
-            <div class="nav nav-pills nav-stacked" role="tablist">
-              <div id="linkwrapper" class="row">
-                <div  class="col-sm-3 navi-header"><a class="nav " id="link1" href="#">Classification with tensor-flow</a><br/></div>
-                <div  class="col-sm-3 navi-header"><a class="nav " id="link2" href="#">Face Detection</a><br/></div>
-                <div  class="col-sm-3 navi-header"><a class="nav " id="link3" href="#">Object Detection</a></div>
-                <div  class="col-sm-3 navi-header"><a class="nav " id="link4" href="#">Classification with SVM</a></div>
-              </div>
-
-
-            </div>
-            <img src="/static/img/ajax-loader.gif" id="img_gif" style="display:none"/>
-            <img src="/media/images/{{name_img}}" id="image_upload" style="display:none"/>
-            <!-- <img style="display:none" id="image_upload" src="https://static.comicvine.com/uploads/original/11122/111226921/4874396-0856915432-71390.jpg"/> -->
-            <!-- <img src=""/> -->
         </nav>
 
         </div>
 
+
+            <div class="col-sm-6" style="height:678.44px;">
+                <nav class="box_style nav nav-tabs" style="height:119.55px;">
+                    <div id="linkwrapper" class="row">
+                        <a class="my-style nav navbar-nav col-sm-2" id="link1" href="#">Classifier <br \>with <br \>CNN</a>
+                        <a class="my-style nav navbar-nav col-sm-3" id="link5" href="#">Classifier <br \>with <br \>SVM</a>
+                        <a class="my-style nav navbar-nav col-sm-3" id="link4" href="#">Classifier <br \>with <br \>SVM<br \>fruit and flowers</a>
+                        <a class="my-style nav navbar-nav col-sm-2" id="link2" href="#">Face Detection</a>
+                        <a class="my-style nav navbar-nav col-sm-2" id="link3" href="#">Object Detection</a>
+                    </div>
+
+                    <img src="/static/img/ajax-loader.gif" id="img_gif" style="display:none"/>
+                </nav>
+                <div class="box_style_image">
+                    {% if flat_face %}
+
+                        <img id="face_detect" class="my-style-img" src="/media/images/face_detected.jpeg" width="100%" depth="100%">
+                        <script language="javascript" type="text/javascript">
+                            var d = new Date();
+                            document.getElementById("face_detect").src =
+                                      "/media/images/face_detected.jpeg?ver=" +
+                                       d.getTime();
+                        </script>
+                    {% else %}
+                        <img class="my-style-img" src="/media/images/{{name_img}}" id="image_upload" style="display:none"/>
+                    {% endif %}
+
+                </div>
+                <form class="row box_style_upload" id="form_upload" name="myfile" action="" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                    <a class="button" href="#popup1">upload your image</a>
+
+                    <div id="popup1" class="overlay">
+                        <div class="popup">
+                            <a id="myButtonId" class="close" href="#">&times;</a>
+                            <div class="content">
+                                  <div class="col-sm-6">{{form}} </div>
+                                  <div  class="col-sm-6">
+                                      <input id="butonID" name="myfile"  type="submit" value="Upload" class="btn btn-info" />
+                                  </div>
+                            </div>
+                            <script>
+                            document.getElementById("myButtonId").click();
+                            </script>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
     </div>
+
+
+
     <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -148,23 +258,25 @@
       </div>
     </div>
 
+
+
     <!-- <div class="loading" style="display:none">Loading&#8230;</div> -->
     <!-- <div>{{ list_img }}</div> -->
 
-    <div>
-      <div style="background-color:lavender;">
-        {% if list_img %}
-            <ul>
-            {% for img in list_img %}
-                <li class="thumbnail"><img src="/media/{{img}}"  />
-                </li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p>No polls are available.</p>
-        {% endif %}
-      </div>
-    </div>
+    <!--<div>-->
+      <!--<div style="background-color:lavender;">-->
+        <!--{% if list_img %}-->
+            <!--<ul>-->
+            <!--{% for img in list_img %}-->
+                <!--<li class="thumbnail"><img src="/media/{{img}}"  />-->
+                <!--</li>-->
+            <!--{% endfor %}-->
+            <!--</ul>-->
+        <!--{% else %}-->
+            <!--<p>No polls are available.</p>-->
+        <!--{% endif %}-->
+      <!--</div>-->
+    <!--</div>-->
 
 
 

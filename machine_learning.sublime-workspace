@@ -1,0 +1,392 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"a",
+				"append\tfunction"
+			],
+			[
+				"s",
+				"self"
+			],
+			[
+				"pos",
+				"pos_tagged_sentences"
+			],
+			[
+				"reg",
+				"regisger_acc"
+			],
+			[
+				"vi",
+				"views\tmodule"
+			],
+			[
+				"fo",
+				"form"
+			],
+			[
+				"con",
+				"context"
+			],
+			[
+				"U",
+				"User_Acc\tclass"
+			],
+			[
+				"w",
+				"widget"
+			],
+			[
+				"C",
+				"CharField\tclass"
+			],
+			[
+				"max",
+				"max_length"
+			],
+			[
+				"__",
+				"__version__\tstatement"
+			],
+			[
+				"url",
+				"urlopen\tfunction"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "blog/opencv_model/vehicles_detection.py",
+			"settings":
+			{
+				"buffer_size": 2921,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 374.0,
+		"last_filter": "line",
+		"selected_items":
+		[
+			[
+				"line",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"ini",
+				"Set Syntax: INI"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ter",
+				"Terminal: Open"
+			],
+			[
+				"Snippet: ",
+				"Snippet: if __name__ == '__main__'"
+			],
+			[
+				"anaconda",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"d",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"v",
+				"Virtualenv: Activate"
+			],
+			[
+				"Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"disable l",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"Pa",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Install Package Control"
+			]
+		],
+		"width": 459.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/minhdo/code",
+		"/home/minhdo/code/blog",
+		"/home/minhdo/code/blog/conf",
+		"/home/minhdo/code/blog/lib",
+		"/home/minhdo/code/blog/lib/data_segtiment",
+		"/home/minhdo/code/blog/opencv_model",
+		"/home/minhdo/code/blog/opencv_model/data",
+		"/home/minhdo/code/blog/opencv_model/filter_model",
+		"/home/minhdo/code/blog/opencv_model/image_from_video",
+		"/home/minhdo/code/blog/opencv_model/test_coca"
+	],
+	"file_history":
+	[
+		"/home/minhdo/code/blog/opencv_model/data/cascade.xml",
+		"/home/minhdo/code/blog/models.py",
+		"/home/minhdo/code/blog/lib/segtiment_analyst.py",
+		"/home/minhdo/code/blog/lib/dictionaty_tagger.py",
+		"/home/minhdo/code/blog/lib/data_segtiment/negative.yaml",
+		"/home/minhdo/code/serverblog/settings.py",
+		"/home/minhdo/code/blog/conf/config.ini",
+		"/home/minhdo/code/blog/tensor_tutalrial/models/attention_ocr/python/metrics_test.py",
+		"/home/minhdo/code/blog/urls.py",
+		"/home/minhdo/code/blog/form/form.py",
+		"/home/minhdo/code/blog/templates/blog/index.html",
+		"/home/minhdo/code/blog/templates/blog/register_acc.html",
+		"/home/minhdo/code/blog/classification/call_classification.py",
+		"/home/minhdo/code/blog/views.py",
+		"/home/minhdo/code/machine_learning.sublime-project",
+		"/home/minhdo/.config/sublime-text-3/Packages/User/Virtualenv.sublime-settings",
+		"/home/minhdo/.config/sublime-text-3/Packages/Virtualenv/Virtualenv.sublime-settings",
+		"/home/minhdo/code/blog/apps.py",
+		"/home/minhdo/code/blog/classification/classification_svm.py",
+		"/home/minhdo/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/minhdo/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/minhdo/.config/sublime-text-3/Packages/User/Default (Linux).sublime-mousemap",
+		"/home/minhdo/.config/sublime-text-3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
+		"/home/minhdo/.config/sublime-text-3/Packages/User/Python.sublime-settings"
+	],
+	"find":
+	{
+		"height": 21.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"cmd"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"file": "blog/opencv_model/test_coca/coca_01_res.jpg",
+					"semi_transient": true,
+					"stack_index": 1,
+					"type": "image"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "blog/opencv_model/vehicles_detection.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2921,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								398,
+								398
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 156.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.269973661106,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 146.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 28.0
+	},
+	"pinned_build_system": "Packages/Virtualenv/Python + Virtualenv.sublime-build",
+	"project": "machine_learning.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 374.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"AccuracyTest"
+			]
+		],
+		"width": 487.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 236.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

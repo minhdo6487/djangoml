@@ -54,6 +54,7 @@ if __name__ == "__main__":
         fd_name = os.path.split(im_path)[1].split(".")[0] + ".feat"
         fd_path = os.path.join(pos_feat_ph, fd_name)
         joblib.dump(fd, fd_path)
+        print "feature pos: {}, shape {}".format(fd, fd.shape )
     print "Positive features saved in {}".format(pos_feat_ph)
 
     print "Calculating the descriptors for the negative samples and saving them"

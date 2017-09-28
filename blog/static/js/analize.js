@@ -10,19 +10,24 @@ $(document).ready(function(){
 
         if( $("#infocontent").is(":visible") == false ) {
             $("#" + vsubmen).show('fast',function() {
-                $("#infocontent").slideDown();
+//                $("#infocontent").slideDown();
+                $("#infocontent").fadeIn();
                 if($('#image_upload').attr('src') != '/media/images/'){
                     $("#image_upload").show();
+//                      alert("actulaly image will show")
                 }
             });
         } else if ( $("#" + vsubmen).is(":visible") == false ) {
-            $("#infocontent").slideUp('slow',function(){
+//            $("#infocontent").slideUp('slow',function(){
+            $("#infocontent").fadeOut('slow',function(){
                 $("#infocontent div").hide();
                 $("#" + vsubmen).show();
-                $("#infocontent").slideDown('slow');
+//                $("#infocontent").slideDown('fast');
+                $("#infocontent").fadeIn('fast');
             });
         } else {
-            $("#infocontent").slideUp('slow',function(){
+//            $("#infocontent").slideUp('fast',function(){
+            $("#infocontent").fadeOut('fast',function(){
                 $("#infocontent div").hide();
 
             });
@@ -47,6 +52,7 @@ $(document).ready(function(){
             // alert("hong")
             $('#reslist').empty();
             var url_string = $("input[name='url_image']").val(); //lấy giá trị input
+//            alert(document.getElementById("url_image").files[0].name)
 
             if(url_image == ''){
                 alert('please type Image url');
@@ -118,13 +124,8 @@ $(document).ready(function(){
                 };
             }
         });
-        return true;
+
 
 
     });
-
-    $(document).on('click', '@show_alert', function(event) {
-        alert("clicked !!!")
-    });
-
 

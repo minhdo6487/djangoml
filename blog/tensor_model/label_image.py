@@ -77,8 +77,10 @@ class rec_image:
             for node_id in top_k:
                 human_string = label_lines[node_id]
                 score = predictions[0][node_id]
-                print('%s (score = %.5f)' % (human_string, score))
-                list_result.append('%s (score = %.5f)' % (human_string, score))
+                # print('%s (score = %.5f)' % (human_string, score))
+                print ( 'accuracy: %20.3f - label: %20s,' % (score, human_string ) )
+                # list_result.append('%s (score = %.5f)' % (human_string, score))
+                list_result.append( 'accuracy: %20.3f - label: %20s,' % (score, human_string )  )
         return list_result, [list_result, img_name]
 
 # class hello:

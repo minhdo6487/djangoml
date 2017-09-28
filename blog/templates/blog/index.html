@@ -5,12 +5,24 @@
 <title>Upload & Search Similar Image</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+  <link rel="stylesheet" href="/static/js/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.session.js"></script>
   <link rel="stylesheet" href="/static/css/analize.css">
   <script type="text/javascript" src="/static/js/analize.js"> </script>
 
+  <script>
+      $(document).ready(function() {
+        $.session.set('tmp_val', '1');
+      });
+
+  </script>
 
 </head>
 
@@ -31,7 +43,7 @@
 
         </div>
     </nav> -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse mystyle" style="font-size: 130%;">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -55,16 +67,13 @@
             <li><a href="#">Deep Learning</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/blog/register_acc/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div style="padding:40px;margin:40px;border:1px solid #ccc">
-
-    </div>
 
 
       <!-- <h2>
@@ -139,7 +148,24 @@
         </a>
       </div>
 
+      <br />
 
+<!--       <div class="center">
+        <a class="button" href="#popup1">Video Demo With HOG</a>
+        <div id="popup1" class="overlay center" style="height50%;">
+            <div class="popup">
+                <a id="myButtonId" class="close" href="#">&times;</a>
+
+                <div class="content">
+                    <video width="320" height="240" controls>
+                        <source src="/media/images/test_detect_object.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                </div>
+
+            </div>
+        </div>
+      </div> -->
 
 
 

@@ -72,38 +72,72 @@ def process_image(image, blocks=4):
         ridx = int(pixel[0]/(256/blocks))
         gidx = int(pixel[1]/(256/blocks))
         bidx = int(pixel[2]/(256/blocks))
+
         idx = ridx + gidx * blocks + bidx * blocks * blocks
+
         feature[idx] += 1
         pixel_count += 1
     return [x/pixel_count for x in feature]
 
-def classification_image(file_pkl, file_label, image_url):
-    data_classification = []
+class classification:
+    @classmethod
+    def classification_img_file(cls, file_pkl, file_label, image):
+        # net_data = StringIO(urllib2.build_opener().open(image).read())
+        # net_data = StringIO(image)
+        # image = Image.open(net_data)
+        image = Image.open(image)
+        features = process_image(image)
+        data_classification = []
+        clf = joblib.load(file_pkl)
 
-    clf = joblib.load(file_pkl)
+        classifier = clf.best_estimator_
+        classifier.probability = True
 
-    features = process_image_url(image_url)
-    classifier = clf.best_estimator_
-    classifier.probability = True
+        with open(file_label, 'r') as f:
+            data = f.readlines()
 
-    with open(file_label, 'r') as f:
-        data = f.readlines()
+        model_labels = ast.literal_eval(data[0])
 
-    model_labels = ast.literal_eval(data[0])
-
-
-    for item in (classifier.predict_proba(features)).tolist():
-        for i in range(0,len(item),1 ):
-            # print ('accuracy: %20s, label: %20s' % (item[i], model_labels[i]['name'] ) )
-            data_classification.append(
-                    'accuracy: %20.3f - label: %20s,' % (item[i], model_labels[i]['item'] )
+        for item in (classifier.predict_proba(features)).tolist():
+            for i in range(0, len(item), 1):
+                # print ('accuracy: %20s, label: %20s' % (item[i], model_labels[i]['name'] ) )
+                data_classification.append(
+                    'accuracy: %20.3f - label: %20s,' % (item[i], model_labels[i]['item'])
                 )
 
+        print(classifier.predict(features))
+        print(classifier.predict_proba(features))
+        print()
 
-    print ( classifier.predict(features) )
-    print ( classifier.predict_proba(features) )
-    print (  )
-    return data_classification
+        return data_classification
+
+
+    @classmethod
+    def classification_image_url(cls, file_pkl, file_label, image_url):
+        data_classification = []
+        clf = joblib.load(file_pkl)
+
+        features = process_image_url(image_url)
+        classifier = clf.best_estimator_
+        classifier.probability = True
+
+        with open(file_label, 'r') as f:
+            data = f.readlines()
+
+        model_labels = ast.literal_eval(data[0])
+
+        for item in (classifier.predict_proba(features)).tolist():
+            for i in range(0,len(item),1 ):
+                print (item)
+                # print ('accuracy: %20s, label: %20s' % (item[i], model_labels[i]['name'] ) )
+                data_classification.append(
+                        'accuracy: %20.3f - label: %20s,' % (item[i], model_labels[i]['item'] )
+                    )
+
+        print ( classifier.predict(features) )
+        print ( classifier.predict_proba(features) )
+        print (  )
+        return data_classification
 
 
 
@@ -134,6 +168,7 @@ def classification_image(file_pkl, file_label, image_url):
 
 
 
-# if __name__ == '__main__':
-#     main(sys.argv[1], sys.argv[2])
-
+if __name__ == '__main__':
+    # main(sys.argv[1], sys.argv[2])
+    import django
+    print ("django version {}".format(django.__version__) )

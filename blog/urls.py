@@ -17,6 +17,7 @@ urlpatterns = [
 
     url(r'classification_svm/$', views.classification_svm, name= 'classification_svm'),
 
+    url(r'register_acc/$', views.register_acc, name= 'register_acc')
     # ex: /polls/5/results/
     #url(r'^(?P<question_id>[0-9]+)/results/$', views.results, name='results'),
     # ex: /polls/5/vote/

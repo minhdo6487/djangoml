@@ -39,14 +39,14 @@ def detect_object(img_url):
     imgage_file = Config().get('hog','object_detect_file')
     # Read the image
     min_wdw_sz = (64, 64)
-    step_size = (40, 40)
+    step_size = (20, 20)
     im = imread(img_url, as_grey=False)
     gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
     # res = cv2.resize(gray, (300, 240) )
     im = gray
     #min_wdw_sz = (50, 40)
     #step_size = (10, 10)
-    downscale, visualize_det = 3.1, False
+    downscale, visualize_det = 5.1, False
     print (img_url, downscale, visualize_det)
     # Load the classifier
     clf = joblib.load(model_path)
@@ -93,7 +93,7 @@ def detect_object(img_url):
                 cv2.rectangle(clone, (x, y), (x + im_window.shape[1], y +
                     im_window.shape[0]), (255, 255, 255), thickness=2)
                 cv2.imshow("Sliding Window in Progress", clone)
-                # cv2.waitKey(30)
+                cv2.waitKey(30)
         # Move the the next scale
         scale+=1
 
@@ -104,7 +104,7 @@ def detect_object(img_url):
         cv2.rectangle(im, (x_tl, y_tl), (x_tl+w, y_tl+h), (0, 0, 0), thickness=2)
     # cv2.imshow("Raw Detections before NMS", im)
     # cv2.waitKey()
-    cv2.imwrite( os.path.join(imagge_dir, imgage_file) , clone)
+    cv2.imwrite( os.path.join(imagge_dir, imgage_file) , im)
     detect_hog = os.path.join(imagge_dir, imgage_file)
     return detect_hog
 

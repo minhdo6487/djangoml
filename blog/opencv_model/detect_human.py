@@ -30,6 +30,7 @@ class human_detect:
 
     @classmethod
     def face_detect(cls, img_name):
+        x, y, w, h = "", "", "", ""
         eye_cascade = cv2.CascadeClassifier(human_detect().detect_eyes)
         face_cascade = cv2.CascadeClassifier(human_detect().detect_face)
 
@@ -38,7 +39,15 @@ class human_detect:
 
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
+        count_point = 0
+        store_box_face = []
         for (x,y,w,h) in faces:
+
+            box_face = "point_" + str(count_point)
+            store_box_face.append(
+                {'box_face': box_face, 'value': [x, y, w, h]}
+            )
+
             cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
             roi_gray = gray[y:y+h, x:x+w]
             roi_color = img[y:y+h, x:x+w]
@@ -46,10 +55,18 @@ class human_detect:
             eyes = eye_cascade.detectMultiScale(roi_gray)
             for (ex,ey,ew,eh) in eyes:
                 cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
-        #print "status: ok"
+
+            count_point += 1
+        if not store_box_face:
+            flat_face = False
+        else:
+            flat_face = True
+
+        print " list box contain face {} ".format( store_box_face )
+
         cv2.imwrite(human_detect().full_dir_image, img)
         urlLink = human_detect().full_dir_image
-        return urlLink
+        return urlLink, store_box_face, flat_face
 
 # if __name__ == "__main__":
 #     urlLink = human_detect.face_detect('download.jpg')

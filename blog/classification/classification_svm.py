@@ -197,7 +197,7 @@ class retrain:
         # only aceept dir include image, with label is name of folder
         list_label = os.listdir(svm_images_dir)
         #print(list_label)
-        count_label = len(list_label)
+        count_label = len(list_label) - 1
         for item_dir in sorted(list_label):
             # print(os.path.join(svm_images_dir, item_dir) )
             full_dir = os.path.join(svm_images_dir, item_dir)
@@ -283,3 +283,4 @@ if __name__ == '__main__':
     #    show_usage()
     #main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
     main(sys.argv[1])
+    

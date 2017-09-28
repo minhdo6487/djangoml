@@ -37,16 +37,19 @@ class Answers(models.Model):
 class Upload(models.Model):
     pic = models.ImageField("Image", upload_to="images/")
     ### here is /dir/path/image/
-    name_pic = models.CharField(max_length=200)
+    # name_pic = models.CharField(max_length=200)
     upload_date=models.DateTimeField(auto_now_add =True)
-
-    # title = models.CharField(max_length=255, blank=True)
-    # file = models.FileField(upload_to='photos/')
-    # uploaded_at = models.DateTimeField(auto_now_add=True)
-
     def __str__(self):
-        return self.name_pic
+        return self.pic.name
 
-#class UploadForm(ModelForm):
-#    class Meta:
-#        model = Upload
+@python_2_unicode_compatible
+class User_Acc(models.Model):
+    # user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
+    user_name = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    age_date = models.DateTimeField('your age')
+    location = models.CharField(max_length=200)
+    def __str__(self):
+        return self.username
+
